@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Validation Example</title>
+    <script src="./Script.js"></script>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+    
+      const form = document.getElementById("myForm");
+
+      
+      form.addEventListener("submit", function (event) {
+        
+        event.preventDefault();
+
+      
+        if (validateForm()) {
+        
+          console.log("Form submitted successfully!");
+        }
+      });
+
+      function validateForm() {
+        const nameField = document.getElementById("name");
+        const emailField = document.getElementById("email");
+
+      
+        if (nameField.value.trim() === "") {
+          alert("Name is required");
+          return false;
+        }
+
+        if (emailField.value.trim() === "") {
+          alert("Email is required");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
